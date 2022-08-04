@@ -1,0 +1,44 @@
+#version: '1'
+#
+#services:
+#  database:
+#    image: 'postgres:14.1-alpine'
+#    container_name: postgres
+#    environment:
+#      - POSTGRES_ROOT_PASSWORD=1234
+#      - POSTGRES_DB=xyzCompany
+#      - POSTGRES_USER=postgres
+#      - POSTGRES_PASSWORD=1234
+#    volumes:
+#      - ./db-data:/var/lib/postgresql/data
+#  springboot-docker-container:
+#    image: 'employee-service:latest'
+#    container_name: employeeDockerService
+#    ports:
+#      - 8088:8080
+#    build:
+#          context: ./
+#          dockerfile: Dockerfile
+#    depends_on:
+#      - postgres
+
+
+#  app:
+#    image: 'employee-service:latest'
+#    build:
+#      context: .
+#    container_name: employeeService
+#    depends_on:
+#      - database
+#    environment:
+#      - SPRING_DATASOURCE_DRIVER_CLASS_NAME=org.postgresql.Driver
+#      - SPRING_DATASOURCE_URL=jc:postgresql://localhost:5432/xyzCompany
+#      - SPRING_DATASOURCE_USERNAME=postgres
+#      - SPRING_DATASOURCE_PASSWORD=1234
+#      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+#  database:
+#    image: 'postgres:14.1-alpine'
+#    container_name: database
+#    environment:
+#      - POSTGRES_USERNAME=postgres
+#      - POSTGRES_PASSWORD=1234
